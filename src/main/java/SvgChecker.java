@@ -1,6 +1,7 @@
 import org.apache.batik.dom.svg.SAXSVGDocumentFactory;
 import org.apache.batik.util.XMLResourceDescriptor;
 import org.w3c.dom.svg.SVGDocument;
+import org.w3c.dom.svg.SVGSVGElement;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -27,7 +28,10 @@ public class SvgChecker {
         SAXSVGDocumentFactory f = new SAXSVGDocumentFactory( parser );
         SVGDocument doc = f.createSVGDocument( uri, reader );
 
-        Icon icon = new SvgIcon( doc, 48, 48 );
+        SVGSVGElement rootElement = doc.getRootElement();
+        int width = (int) rootElement.getWidth().getBaseVal().getValue();
+        int height = (int) rootElement.getHeight().getBaseVal().getValue();
+        Icon icon = new SvgIcon( doc, width, height );
 
         JPanel panel = new JPanel() {
             @Override
