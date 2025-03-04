@@ -1,0 +1,1 @@
+To use this tool, open the svg file with a text editor. Then copy the XML contents. Run the tool and paste the XML into it and press enter. An image will pop up. If it looks OK, it'll also look OK in Accuro. Otherwise, you probably need to remove certain tags.
